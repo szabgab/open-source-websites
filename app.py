@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, abort
 import json
 app = Flask(__name__)
 
@@ -26,6 +26,17 @@ def main():
         tags=tags,
         tag_list=tag_list
     )
+
+@app.route("/technology")
+def redirect_to():
+    return redirect('/')
+
+@app.route("/technology/<name>")
+def technology(name):
+    if name in tags:
+        return "hello " + name
+    else:
+        return abort(404)
 
 if __name__ == "__main__":
     app.run(debug=True)
