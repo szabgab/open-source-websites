@@ -12,14 +12,24 @@
     <div class="container-fluid">
       <div class="row">
           <div class="col-md-1"></div>
-          <div class="col-md-10"></div>
+          <div class="col-md-10">
           <h1>{{title}}</h1>
+          List of web sites that are open source.<br>
+          That is where both the back-end and the front-end is available on GitHub or on some other public version control system
+          and where you can learn from the code, improve it, and make a contribution.
+          </div>
           <div class="col-md-1"></div>
       </div>
 
       <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-7">
+              <h2>Technologies</h2>
+              <ul>
+               {% for tag in tag_list %}
+                  <li><a href="/technology/{{ tag }}">{{ tag }} ({{ tags[tag] }})</a></li>
+               {% endfor %}
+               </ul>
           </div>
           <div class="col-md-3"></div>
       </div>
