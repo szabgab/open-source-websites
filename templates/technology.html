@@ -1,0 +1,6 @@
+Tech: {{ technology }} {{ details.count }}
+<ul>
+{% for e in details.entries %}
+    <li><a href="{{ e.url }}">{{ e.title }}</a></li>
+{% endfor %}
+</ul>

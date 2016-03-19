@@ -27,7 +27,7 @@
               <h2>Technologies</h2>
               <ul>
                {% for tag in tag_list %}
-                  <li><a href="/technology/{{ tag }}">{{ tag }} ({{ tags[tag] }})</a></li>
+                  <li><a href="/technology/{{ tag }}">{{ tag }} ({{ tags[tag]['count'] }})</a></li>
                {% endfor %}
                </ul>
           </div>

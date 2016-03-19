@@ -12,8 +12,9 @@ for entry in data['bookmarks']:
     if 'tags' in entry:
         for tag in entry['tags']:
             if not tag in tags:
-                tags[tag] = 0
-            tags[tag] += 1
+                tags[tag] = { 'count' : 0, 'entries' : [] }
+            tags[tag]['count'] += 1
+            tags[tag]['entries'].append(entry)
 
 tag_list = sorted(tags, key=lambda k: tags[k])
 tag_list.reverse()
@@ -34,7 +35,10 @@ def redirect_to():
 @app.route("/technology/<name>")
 def technology(name):
     if name in tags:
-        return "hello " + name
+        return render_template('technology.html',
+            technology=name,
+            details=tags[name]
+        )
     else:
         return render_template('404.html'), 404
 
