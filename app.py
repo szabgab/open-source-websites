@@ -36,7 +36,7 @@ def technology(name):
     if name in tags:
         return "hello " + name
     else:
-        return abort(404)
+        return render_template('404.html'), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
