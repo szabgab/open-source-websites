@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-     content="width=device-width, initial-scale=1, user-scalable=yes">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <script src="bookmarks.js"></script>
-  <title>{{ title }}</title>
-</head>
-<body>
-    <div class="container-fluid">
+{% include "incl/header.html" %}
       <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10">
@@ -22,8 +11,8 @@
       </div>
 
       <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-7">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
               <h2>Technologies</h2>
               <ul>
                {% for tag in tag_list %}
@@ -31,8 +20,6 @@
                {% endfor %}
                </ul>
           </div>
-          <div class="col-md-3"></div>
+          <div class="col-md-1"></div>
       </div>
-    </div>
-</body>
-</html>
+{% include "incl/footer.html" %}

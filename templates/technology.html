@@ -1,6 +1,15 @@
-Tech: {{ technology }} {{ details.count }}
-<ul>
-{% for e in details.entries %}
-    <li><a href="{{ e.url }}">{{ e.title }}</a></li>
-{% endfor %}
-</ul>
+{% include "incl/header.html" %}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h1>Open Source web sites using {{ technology }}</h1>
+        Found: {{ details.count }}
+        <ul>
+            {% for e in details.entries %}
+                <li><a href="{{ e.url }}">{{ e.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+{% include "incl/footer.html" %}
