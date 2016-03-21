@@ -2,13 +2,15 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <h1>Open Source websites using {{ technology }}</h1>
+        <h1>Open Source websites using <a href="{{details.url}}">{{ technology }}</a></h1>
         Found: {{ details.count }}
         <ul>
             {% for e in details.entries %}
                 <li><a href="/site/{{ e.site }}">{{ e.title }}</a></li>
             {% endfor %}
         </ul>
+        {{details.comment}}
+
     </div>
     <div class="col-md-1"></div>
 </div>
