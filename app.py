@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, abort
 import json
+import re
 app = Flask(__name__)
 
 with open('sites.json') as fh:
@@ -7,8 +8,14 @@ with open('sites.json') as fh:
 
 data = json.loads(raw)
 tags = {}
+entry_of_site = {}
 
 for entry in data['bookmarks']:
+    url = re.sub(r'https?://', '', entry["url"])
+    site = re.sub(r'/.*', '', url)
+    entry["site"] = site
+    entry_of_site[site] = entry
+
     if 'tags' in entry:
         for tag in entry['tags']:
             if not tag in tags:
@@ -42,6 +49,14 @@ def technology(name):
         )
     else:
         return render_template('404.html'), 404
+
+@app.route("/site/<name>")
+def site(name):
+    if not name in entry_of_site:
+        return render_template('404.html'), 404
+
+    return render_template('site.html', entry=entry_of_site[name])
+
 
 @app.route("/about")
 def about():

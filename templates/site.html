@@ -1,0 +1,17 @@
+{% include "incl/header.html" %}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h1><a href="{{entry.url}}">{{entry.title}}</a></h1>
+        {{entry.comment}}
+        <h2>Technologies</h2>
+        <ul>
+            {% for t in entry.tags %}
+                <li><a href="/technology/{{t}}">{{t}}</a></li>
+            {% endfor %}
+        </ul>
+        Source: <a href="{{entry.vcs}}">{{entry.vcs}}</a>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+{% include "incl/footer.html" %}

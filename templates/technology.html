@@ -6,7 +6,7 @@
         Found: {{ details.count }}
         <ul>
             {% for e in details.entries %}
-                <li><a href="{{ e.url }}">{{ e.title }}</a></li>
+                <li><a href="/site/{{ e.site }}">{{ e.title }}</a></li>
             {% endfor %}
         </ul>
     </div>
